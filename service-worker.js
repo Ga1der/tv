@@ -40,10 +40,12 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-    console.log('[SV fetch]', caches, event.request, event);
+    console.log('[SV fetch]', caches.open("sw-precache-v3-sw-precache-webpack-plugin-https://silent-things.surge.sh"), event);
     event.respondWith(
-        caches.match(event.request).then(response => {
-            return response || fetch(event.request);
-        })
+        caches
+            .match(event.request)
+            .then(response => {
+                return response || fetch(event.request);
+            })
     );
 });
