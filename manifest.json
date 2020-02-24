@@ -13,7 +13,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/tv/manifest.json",
+  "start_url": "/tv/",
   "background_color": "#3367D6",
   "display": "standalone",
   "-scope": "/tv/",
