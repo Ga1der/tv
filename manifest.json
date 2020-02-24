@@ -13,9 +13,9 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/index.html?hash=sh",
+  "start_url": "https://github.com/Ga1der/tv/",
   "background_color": "#3367D6",
   "display": "standalone",
-  "scope": "/tv/",
+  "scope": "https://github.com/Ga1der/tv/",
   "theme_color": "#3367D6"
 }
