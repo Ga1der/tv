@@ -40,9 +40,7 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-    console.log('[SV fetch]', caches);
-    console.log('[SV fetch]', event.request);
-    console.log('[SV fetch]', event);
+    console.log('[SV fetch]', caches, event.request, event);
     event.respondWith(
         caches.match(event.request).then(response => {
             return response || fetch(event.request);
