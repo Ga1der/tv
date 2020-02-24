@@ -304,12 +304,22 @@
 		
 		
 		
-		if (window.Worker) {
-
-		  var myWorker = new Worker("/tv/worker.js");
-
-		}
+// 		if (window.Worker) {
+// 		  var myWorker = new Worker("/tv/worker.js");
+// 		}
 		
+		
+		if ('serviceWorker' in navigator) {
+		  navigator.serviceWorker.register('/tv/service-worker.js', {
+		  	scope: './sw-test/'
+		  }).then((reg) => {
+	    		// регистрация сработала
+	    		console.log('Registration succeeded. Scope is ' + reg.scope);
+		  }).catch((error) => {
+	    		// регистрация прошла неудачно
+			console.log('Registration failed with ' + error);
+		  });
+		}
 		
 		
 		
