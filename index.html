@@ -57,7 +57,7 @@
 // 		}
 
 		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/tv/service-worker.js', {
+			navigator.serviceWorker.register('/service-worker.js', {
 				scope: '/'
 			}).then((reg) => {
 				// регистрация сработала
