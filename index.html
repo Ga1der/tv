@@ -51,22 +51,24 @@
         <script defer src="Divan.js"></script>
         <script defer src="DivanUI.js"></script>
         <script defer src="Divan.init.js"></script>
+        <script src="service-worker.js"></script>
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/service-worker.js', {
+                    scope: '/'
+                }).then((reg) => {
+                    // регистрация сработала
+                    console.log('Registration succeeded. Scope is ' + reg.scope);
+                }).catch((error) => {
+                    // регистрация прошла неудачно
+                    console.log('Registration failed with ' + error);
+                });
+            }
+        </script>
         <script>
 // 		if (window.Worker) {
 // 		  var myWorker = new Worker("/tv/worker.js");
 // 		}
-
-		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/service-worker.js', {
-				scope: '/'
-			}).then((reg) => {
-				// регистрация сработала
-				console.log('Registration succeeded. Scope is ' + reg.scope);
-			}).catch((error) => {
-				// регистрация прошла неудачно
-				console.log('Registration failed with ' + error);
-			});
-		}
 
 // 		let deferredPrompt;
 // 		const addBtn = document.querySelector('.add-button');
