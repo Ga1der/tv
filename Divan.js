@@ -1,6 +1,11 @@
+/**
+ * 
+ */
 class Divan {
-    constructor () 
-    {
+    /**
+     * 
+     */
+    constructor() {
         this.client_key = '8a66efabeee725d313673361fa3728c21430809f'; // magic!
 
         this.user_email = new Date().getTime() + '@mail.com';
@@ -14,8 +19,10 @@ class Divan {
         this.response_login;
     }
 
-    apiAuth () 
-    {
+    /**
+     * 
+     */
+    apiAuth() {
         $.ajax({
             async: false,
             method: 'get',
@@ -33,11 +40,13 @@ class Divan {
             }
         });
 
-        return this; 
+        return this;
     }
 
-    apiChannels () 
-    {
+    /**
+     * 
+     */
+    apiChannels() {
         $.ajax({
             async: false,
             method: 'get',
@@ -52,14 +61,16 @@ class Divan {
             }
         });
 
-        return this; 
+        return this;
     }
 
-    getFavoriteChannels () 
-    {
+    /**
+     * 
+     */
+    getFavoriteChannels() {
         let favorite = window.localStorage.getItem('user_favorite_channels');
         if (!favorite) return [
-            2, 14, 8, 67, 18, 19, 135, 29, 148, 152, 342, 1051, 
+            2, 14, 8, 67, 18, 19, 135, 29, 148, 152, 342, 1051,
             704, 1167, 1224, 1174, 116, 306, 258, 34, 10, 1378
         ];
         favorite = JSON.parse(favorite);
@@ -70,21 +81,27 @@ class Divan {
         return favorite;
     }
 
-    favoriteChannelAdd (channel_id) 
-    {
+    /**
+     * 
+     */
+    favoriteChannelAdd(channel_id) {
         const channel = this.response_channels.find(element => element.id == channel_id);
         this.user_favorite_channels[channel_id] = channel.title.RU;
         window.localStorage.setItem('user_favorite_channels', JSON.stringify(this.user_favorite_channels));
     }
 
-    favoriteChannelRemove (channel_id) 
-    {
+    /**
+     * 
+     */
+    favoriteChannelRemove(channel_id) {
         delete this.user_favorite_channels[channel_id];
         window.localStorage.setItem('user_favorite_channels', JSON.stringify(this.user_favorite_channels));
     }
 
-    apiRegister () 
-    {
+    /**
+     * 
+     */
+    apiRegister() {
         $.ajax({
             async: false,
             method: 'post',
@@ -102,8 +119,10 @@ class Divan {
         });
     }
 
-    apiLogin () 
-    {
+    /**
+     * 
+     */
+    apiLogin() {
         $.ajax({
             async: false,
             method: 'post',
@@ -120,8 +139,10 @@ class Divan {
         });
     }
 
-    apiPromoCode () 
-    {
+    /**
+     * 
+     */
+    apiPromoCode() {
         $.ajax({
             async: true,
             method: 'post',
@@ -136,8 +157,10 @@ class Divan {
         });
     }
 
-    apiFavoriteChannelAdd (channel_id) 
-    {
+    /**
+     * 
+     */
+    apiFavoriteChannelAdd(channel_id) {
         $.ajax({
             async: true,
             method: 'post',
@@ -153,8 +176,10 @@ class Divan {
         });
     }
 
-    apiFavoriteChannelDelete (channel_id) 
-    {
+    /**
+     * 
+     */
+    apiFavoriteChannelDelete(channel_id) {
         $.ajax({
             async: true,
             method: 'post',

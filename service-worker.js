@@ -21,17 +21,17 @@
 
 self.addEventListener('install', event => {
     console.log('[SV install]', event);
-//     event.waitUntil(
-//         caches.open('airhorner').then(cache => {
-//             return cache.addAll([
-//                 '/',
-//                 '/?utm_source=homescreen',
-//                 '/Home/About',
-//                 '/Home/Index',
-//                 '/Home/Contact'
-//             ]).then(() => self.skipWaiting());
-//         })
-//     )
+    //     event.waitUntil(
+    //         caches.open('airhorner').then(cache => {
+    //             return cache.addAll([
+    //                 '/',
+    //                 '/?utm_source=homescreen',
+    //                 '/Home/About',
+    //                 '/Home/Index',
+    //                 '/Home/Contact'
+    //             ]).then(() => self.skipWaiting());
+    //         })
+    //     )
 });
 
 self.addEventListener('activate', event => {

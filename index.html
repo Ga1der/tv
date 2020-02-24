@@ -1,79 +1,77 @@
 <!doctype html>
 <html lang="en">
-    <head>
-	<title>Document</title>
-        <meta charset="UTF-8"/>
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-        <meta http-equiv="X-UA-Compatible" 
-	      content="ie=edge"/>
-    	<meta name="theme-color" 
-	      content="#2F2F2F"/>
-        <link rel="manifest" 
-	      href="/tv/manifest.json"/>
-    	<link rel="stylesheet" 
-	      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
-	      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
-	      crossorigin="anonymous"/>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <style>
-            #divan_tv {
-                color: darkgreen;
-                width: 100%;
-                font-family: monospace;
-                white-space: pre-wrap;
-            }
 
-            .channels {
-                --column-count: 3;
-                max-width: 100%;
-            }
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#2F2F2F" />
+    <link rel="manifest" href="/tv/manifest.json" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        #divan_tv {
+            color: darkgreen;
+            width: 100%;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
 
-            label {
-                display: block;
-                text-align: center;
-                min-width: 120px;
-            }
+        .channels {
+            --column-count: 3;
+            max-width: 100%;
+        }
 
-            input.channel:checked ~ img {
-                box-shadow: 1px 1px 5px 5px darkgreen;
-                /*border: double darkgreen 5px;*/
-            }
+        label {
+            display: block;
+            text-align: center;
+            min-width: 120px;
+        }
 
-            img.channel {
-                box-sizing: border-box;
-                background: lightgray;
-                border-radius: 5px;
-                max-height: 60px;
-                margin: 5px 0;
-            }
-        </style>
-        <script defer src="Divan.js"></script>
-        <script defer src="DivanUI.js"></script>
-        <script defer src="Divan.init.js"></script>
-        <script>
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/tv/service-worker.js', {
-                    scope: '/tv/'
-                }).then((reg) => {
-                    // регистрация сработала
-                    console.log('Registration succeeded. Scope is ' + reg.scope);
-                }).catch((error) => {
-                    // регистрация прошла неудачно
-                    console.log('Registration failed with ' + error);
-                });
-            }
-        </script>
-    </head>
-    <body class="content">
-        <div class="">
-            <hr/>
-            <div id="divan_tv"></div>
-            <hr/>
-            <button id="get_code" class="btn btn-success btn-xl btn-block" disabled>получить!</button>
-            <hr/>
-            <div class="channels row"></div>
-            <hr/>
-        </div>
-    </body>
+        input.channel:checked~img {
+            box-shadow: 1px 1px 5px 5px darkgreen;
+            /*border: double darkgreen 5px;*/
+        }
+
+        img.channel {
+            box-sizing: border-box;
+            background: lightgray;
+            border-radius: 5px;
+            max-height: 60px;
+            margin: 5px 0;
+        }
+    </style>
+    <script defer src="Divan.js"></script>
+    <script defer src="DivanUI.js"></script>
+    <script defer src="Divan.init.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/tv/service-worker.js', {
+                scope: '/tv/'
+            }).then((reg) => {
+                // регистрация сработала
+                console.log('Registration succeeded. Scope is ' + reg.scope);
+            }).catch((error) => {
+                // регистрация прошла неудачно
+                console.log('Registration failed with ' + error);
+            });
+        }
+    </script>
+</head>
+
+<body class="content">
+    <div class="">
+        <hr />
+        <div id="divan_tv"></div>
+        <hr />
+        <button id="get_code" class="btn btn-success btn-xl btn-block" disabled>получить!</button>
+        <hr />
+        <div class="channels row"></div>
+        <hr />
+    </div>
+</body>
+
 </html>
