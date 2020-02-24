@@ -20,7 +20,7 @@
 // });
 
 self.addEventListener('install', event => {
-    console.log('[SV]', event);
+    console.log('[SV install]', event);
 //     event.waitUntil(
 //         caches.open('airhorner').then(cache => {
 //             return cache.addAll([
@@ -35,16 +35,14 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('activate', event => {
-    console.log('[SV]', event);
+    console.log('[SV activate]', event);
     event.waitUntil(self.clients.claim());
 });
 
 self.addEventListener('fetch', event => {
-    console.log('[SV]', 
-        caches, 
-        event.request, 
-        event
-    );
+    console.log('[SV fetch]', caches);
+    console.log('[SV fetch]', event.request);
+    console.log('[SV fetch]', event);
     event.respondWith(
         caches.match(event.request).then(response => {
             return response || fetch(event.request);
