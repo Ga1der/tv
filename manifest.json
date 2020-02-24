@@ -13,9 +13,9 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/manifest.json",
+  "start_url": "/tv/manifest.json",
   "background_color": "#3367D6",
   "display": "standalone",
-  "-scope": "/",
+  "-scope": "/tv/",
   "theme_color": "#3367D6"
 }
