@@ -64,7 +64,7 @@
 
         .stick_top {
             position: sticky;
-            bottom: 0px;
+            top: 0px;
             z-index: 999;
             background-color: #2F2F2F;
             border-radius: 3ex;
@@ -77,6 +77,12 @@
 
 <body class="content">
     <div class="container">
+        <div class="stick_top">
+            <div id="divan_tv"></div>
+            <button id="get_code" class="btn btn-success btn-lg btn-block" disabled>
+                получить!
+            </button>
+        </div>
         <template id="template_channel">
             <div class="col-lg-2 col-md-3 col-sm-4 col-4 col">
                 <label title="{{lable.title}}" class="channel">
@@ -87,12 +93,6 @@
             </div>
         </template>
         <div class="row channels"></div>
-        <div class="stick_top">
-            <div id="divan_tv"></div>
-            <button id="get_code" class="btn btn-default btn-lg btn-block" disabled>
-                получить!
-            </button>
-        </div>
     </div>
 </body>
 
