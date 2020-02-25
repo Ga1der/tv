@@ -14,17 +14,27 @@ class DivanUI {
      */
     drawChannels() {
         const response_channels = this.divan.response_channels;
+        const template = $('#template_channel').html();
         for (let i in response_channels) {
             (function () {
                 let channel = response_channels[i],
-                    input = $(`<input type="checkbox" class="channel" value="${channel.id}" hidden />`),
-                    image = $(`<img src="${channel.image.sm}" title="${channel.title.RU}" class="channel" />`),
-                    label = $(`<label title="${channel.id} \t:\t ${channel.title.RU}" style="cursor: pointer;" />`),
+                    // label = $(`<label title="${channel.id} \t:\t ${channel.title.RU}" class="channel" />`),
+                    // input = $(`<input type="checkbox" value="${channel.id}" hidden />`),
+                    // image = $(`<img src="${channel.image.sm}" title="${channel.title.RU}" />`),
                     channels = $('.channels');
-                label.addClass('col');
-                label.append(input);
-                label.append(image);
-                channels.append(label);
+                // label.addClass('col');
+                // label.append(input);
+                // label.append(image);
+                // channels.append(label);
+
+                const item = template
+                    .replace('{{lable.title}}', `${channel.id} \t:\t ${channel.title.RU}`)
+                    .replace('{{channel.id}}', `${channel.id}`)
+                    .replace('{{channel.name}}', `${channel.title.RU}`)
+                    .replace('{{image.src}}', `${channel.image.sm}`)
+                    .replace('{{image.title}}', `${channel.description.RU}`);
+
+                channels.append(item);
             }());
         }
 
