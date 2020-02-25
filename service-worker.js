@@ -22,8 +22,11 @@
 //     );
 // });
 
+/**
+ * 
+ */
 self.addEventListener('install', event => {
-    console.log('[SV install]', event);
+    // console.log('[SV install]', event);
     // event.waitUntil(
     //     caches.open('airhorner').then(cache => {
     //         return cache.addAll([
@@ -37,13 +40,19 @@ self.addEventListener('install', event => {
     // );
 });
 
+/**
+ * 
+ */
 self.addEventListener('activate', event => {
-    console.log('[SV activate]', event);
+    // console.log('[SV activate]', event);
     // event.waitUntil(self.clients.claim());
 });
 
+/**
+ * 
+ */
 self.addEventListener('fetch', event => {
-    console.log('[SV fetch]', event);
+    // console.log('[SV fetch]', event);
     // const cache = caches.match(event.request).then(response => {
     //     caches.add();
     //     return response;
