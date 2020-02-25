@@ -13,6 +13,22 @@
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <meta name="theme-color" content="#1F1F1F" />
+    <script defer src="Divan.js"></script>
+    <script defer src="DivanUI.js"></script>
+    <script defer src="Divan.init.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/tv/service-worker.js', {
+                scope: '/tv/'
+            }).then((reg) => {
+                // регистрация сработала
+                console.log('Registration succeeded. Scope is ' + reg.scope);
+            }).catch((error) => {
+                // регистрация прошла неудачно
+                console.log('Registration failed with ' + error);
+            });
+        }
+    </script>
     <style>
         .content {
             background-color: #2F2F2F;
@@ -41,30 +57,23 @@
             box-sizing: border-box;
             background: rgba(55, 70, 80, .5);
             border-radius: 5px;
-            max-height: 60px;
+            /* max-height: 60px; */
             margin: 5px 0;
+        }
+
+        .channel>img {
+            /* cursor: pointer;
+            box-sizing: border-box;
+            background: rgba(55, 70, 80, .5);
+            border-radius: 5px; */
+            max-height: 60px;
+            /* margin: 5px 0; */
         }
 
         .channel>input:checked~img {
             box-shadow: 0px 0px 15px 5px #28a745;
         }
     </style>
-    <script defer src="Divan.js"></script>
-    <script defer src="DivanUI.js"></script>
-    <script defer src="Divan.init.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/tv/service-worker.js', {
-                scope: '/tv/'
-            }).then((reg) => {
-                // регистрация сработала
-                console.log('Registration succeeded. Scope is ' + reg.scope);
-            }).catch((error) => {
-                // регистрация прошла неудачно
-                console.log('Registration failed with ' + error);
-            });
-        }
-    </script>
 </head>
 
 <body class="content">
