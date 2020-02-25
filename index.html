@@ -54,20 +54,14 @@
 
         .channel {
             cursor: pointer;
-            box-sizing: border-box;
-            background: rgba(55, 70, 80, .5);
-            border-radius: 5px;
-            /* max-height: 60px; */
-            margin: 5px 0;
         }
 
         .channel>img {
-            /* cursor: pointer;
             box-sizing: border-box;
             background: rgba(55, 70, 80, .5);
-            border-radius: 5px; */
+            border-radius: 5px;
             max-height: 60px;
-            /* margin: 5px 0; */
+            margin: 5px 0;
         }
 
         .channel>input:checked~img {
@@ -83,11 +77,13 @@
         <button id="get_code" class="btn btn-success btn-xl btn-block" disabled>получить!</button>
         <hr />
         <template id="template_channel">
-            <label title="{{lable.title}}" class="col channel">
-                <input type="checkbox" value="{{channel.id}}" hidden />
-                <img src="{{image.src}}" title="{{image.title}}" />
+            <div class="col">
+                <label title="{{lable.title}}" class="channel">
+                    <input type="checkbox" value="{{channel.id}}" hidden />
+                    <img src="{{image.src}}" title="{{image.title}}" />
+                </label>
                 <span>{{channel.name}}</span>
-            </label>
+            </div>
         </template>
         <div class="row channels"></div>
     </div>
