@@ -30,10 +30,6 @@
         }
     </script>
     <style>
-        .content {
-            background-color: #2F2F2F;
-        }
-
         #divan_tv {
             color: #28a745;
             width: 100%;
@@ -41,23 +37,19 @@
             white-space: pre-wrap;
         }
 
-        .channels {
-            --column-count: 3;
-            max-width: 100%;
-        }
-
-        label {
-            display: block;
-            text-align: center;
-            min-width: 120px;
-        }
-
-        .channel {
-            cursor: pointer;
+        .content {
+            background-color: #2F2F2F;
             color: lightgray;
         }
 
-        .channel>img {
+        .channel {
+            display: block;
+            text-align: center;
+            min-width: 120px;
+            cursor: pointer;
+        }
+
+        .channel .logo {
             box-sizing: border-box;
             background: rgba(55, 70, 80, .5);
             border-radius: 5px;
@@ -65,7 +57,7 @@
             margin: 5px 0;
         }
 
-        .channel>input:checked~img {
+        .channel input:checked~img {
             box-shadow: 0px 0px 15px 5px #28a745;
         }
     </style>
@@ -81,8 +73,8 @@
             <div class="col">
                 <label title="{{lable.title}}" class="channel">
                     <input type="checkbox" value="{{channel.id}}" hidden />
-                    <img src="{{image.src}}" title="{{image.title}}" />
-                    <span>{{channel.name}}</span>
+                    <img src="{{image.src}}" title="{{image.title}}" class="logo" />
+                    <div>{{channel.name}}</div>
                 </label>
             </div>
         </template>
