@@ -75,7 +75,7 @@ class DivanUI {
                 login: divan.response_registration.id,
                 password: divan.user_password,
                 // favorite: divan.user_favorite_channels,
-                favorite: favorite.,
+                favorite: favorite,
             }, null, "  "));
         });
     }
