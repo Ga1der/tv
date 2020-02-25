@@ -13,20 +13,12 @@ class DivanUI {
      * 
      */
     drawChannels() {
-        const response_channels = this.divan.response_channels;
+        const channels = $('.channels');
         const template = $('#template_channel').html();
+        const response_channels = this.divan.response_channels;
         for (let i in response_channels) {
-            (function () {
-                let channel = response_channels[i],
-                    // label = $(`<label title="${channel.id} \t:\t ${channel.title.RU}" class="channel" />`),
-                    // input = $(`<input type="checkbox" value="${channel.id}" hidden />`),
-                    // image = $(`<img src="${channel.image.sm}" title="${channel.title.RU}" />`),
-                    channels = $('.channels');
-                // label.addClass('col');
-                // label.append(input);
-                // label.append(image);
-                // channels.append(label);
-
+            (() => {
+                const channel = response_channels[i];
                 const item = template
                     .replace('{{lable.title}}', `${channel.id} \t:\t ${channel.title.RU}`)
                     .replace('{{channel.id}}', `${channel.id}`)
@@ -35,7 +27,7 @@ class DivanUI {
                     .replace('{{image.title}}', `${channel.description.RU}`);
 
                 channels.append(item);
-            }());
+            })();
         }
 
         $('#get_code').prop('disabled', false);
@@ -66,7 +58,7 @@ class DivanUI {
                 divan.apiPromoCode();
             }
 
-            $('.channels input.channel').map((key, element) => {
+            $('.channels .channel input').map((key, element) => {
                 element.checked
                     ? divan.apiFavoriteChannelAdd(element.value)
                     : divan.apiFavoriteChannelDelete(element.value);
