@@ -49,7 +49,7 @@ class DivanUI {
         $('.channels .channel input').map(function () {
             const channel_id = 1 * this.value;
             const is_favorite = favorite.includes(channel_id);
-            this.parentElement.style.order = (is_favorite ? 1 : 2);
+            this.parentElement.parentElement.style.order = (is_favorite ? 1 : 2);
             this.checked = (is_favorite ? true : false);
         });
     }
