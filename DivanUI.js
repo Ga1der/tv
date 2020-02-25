@@ -58,7 +58,7 @@ class DivanUI {
                 divan.apiPromoCode();
             }
 
-            const favorite = [];
+            const favorite = {};
             $('.channels .channel input').map((key, element) => {
                 element.checked
                     ? divan.apiFavoriteChannelAdd(element.value)
