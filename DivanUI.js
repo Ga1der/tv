@@ -17,9 +17,9 @@ class DivanUI {
         for (let i in response_channels) {
             (function () {
                 let channel = response_channels[i],
-                    input = $(`<input type="checkbox" class="channel" value="${channel.id}" hidden/>`),
-                    image = $(`<img src="${channel.image.sm}" class="channel"/>`),
-                    label = $(`<label title="${channel.id}   \t:\t ${channel.title.RU}" style="cursor: pointer;"/>`),
+                    input = $(`<input type="checkbox" class="channel" value="${channel.id}" hidden />`),
+                    image = $(`<img src="${channel.image.sm}" title="${channel.title.RU}" class="channel" />`),
+                    label = $(`<label title="${channel.id} \t:\t ${channel.title.RU}" style="cursor: pointer;" />`),
                     channels = $('.channels');
                 label.addClass('col');
                 label.append(input);
