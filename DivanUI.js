@@ -58,16 +58,16 @@ class DivanUI {
                 divan.apiPromoCode();
             }
 
-            const favorite = {};
+            // const favorite = {};
             $('.channels .channel input').map((key, element) => {
                 element.checked
                     ? divan.apiFavoriteChannelAdd(element.value)
                     : divan.apiFavoriteChannelDelete(element.value);
 
-                if (element.checked) {
-                    const channel = this.divan.response_channels.find(item => item.id == element.value);
-                    favorite[1 * channel.id] = channel.title.RU;
-                }
+                // if (element.checked) {
+                //     const channel = this.divan.response_channels.find(item => item.id == element.value);
+                //     favorite[1 * channel.id] = channel.title.RU;
+                // }
             });
 
             $('#divan_tv').text(JSON.stringify({
@@ -75,7 +75,7 @@ class DivanUI {
                 login: divan.response_registration.id,
                 password: divan.user_password,
                 // favorite: divan.user_favorite_channels,
-                favorite: favorite,
+                // favorite: favorite,
             }, null, "  "));
         });
     }
