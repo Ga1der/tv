@@ -35,6 +35,7 @@
             width: 100%;
             font-family: monospace;
             white-space: pre-wrap;
+            margin-bottom: 3ex;
         }
 
         .content {
@@ -63,7 +64,7 @@
 
         .stick_top {
             position: sticky;
-            top: 0px;
+            bottom: 0px;
             z-index: 999;
             background-color: #2F2F2F;
             border-radius: 3ex;
@@ -77,8 +78,8 @@
 <body class="content">
     <div class="container">
         <div class="stick_top">
-            <div id="divan_tv" style="margin-bottom: 1ex;"></div>
-            <button id="get_code" class="btn btn-success btn-xl btn-block" disabled>получить!</button>
+            <div id="divan_tv"></div>
+            <button id="get_code" class="btn btn-primary btn-xl btn-block" disabled>получить!</button>
         </div>
         <template id="template_channel">
             <div class="col-lg-2 col-md-3 col-sm-4 col-4 col">
