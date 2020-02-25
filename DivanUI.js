@@ -52,6 +52,8 @@ class DivanUI {
     onGetCode() {
         const divan = this.divan;
         $('#get_code').on('click', () => {
+            $(this).prop('disabled', true);
+
             if (!divan.response_login) {
                 divan.apiRegister();
                 divan.apiLogin();
@@ -77,6 +79,8 @@ class DivanUI {
                 // favorite: divan.user_favorite_channels,
                 // favorite: favorite,
             }, null, "  "));
+
+            $(this).prop('disabled', false);
         });
     }
 }
