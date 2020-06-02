@@ -14,6 +14,7 @@ class DivanUI {
      */
     drawChannels() {
         const channels = $('.channels');
+        channels.html('');
         const template = $('#template_channel').html();
         const response_channels = this.divan.response_channels;
         for (let i in response_channels) {
