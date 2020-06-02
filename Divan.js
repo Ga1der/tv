@@ -19,6 +19,14 @@ class Divan {
         this.response_login;
     }
 
+    sleep(ms) {
+        const end = ms + Date.now();
+        while (end > Date.now()) {
+            // ... 
+        }
+        return true;
+    }
+
     /**
      * 
      */
@@ -37,6 +45,10 @@ class Divan {
             success: (data, textStatus, jqXHR) => {
                 this.response_authorization = data.data;
                 console.info(this.response_authorization);
+            },
+            error: () => {
+                this.sleep(1000);
+                this.apiAuth();
             }
         });
 
@@ -58,6 +70,9 @@ class Divan {
             success: (data, textStatus, jqXHR) => {
                 this.response_channels = data.data.data;
                 console.info(this.response_channels);
+            },
+            error: () => {
+                this.apiChannels();
             }
         });
 
@@ -115,6 +130,9 @@ class Divan {
             success: (data, textStatus, jqXHR) => {
                 this.response_registration = data.data.data;
                 console.info(this.response_registration);
+            },
+            error: () => {
+                this.apiRegister();
             }
         });
     }
@@ -135,6 +153,9 @@ class Divan {
             success: (data, textStatus, jqXHR) => {
                 this.response_login = data.data.data;
                 console.info(this.response_login);
+            },
+            error: () => {
+                this.apiLogin();
             }
         });
     }
@@ -153,6 +174,9 @@ class Divan {
             },
             success: (data, textStatus, jqXHR) => {
                 console.info(data.data);
+            },
+            error: () => {
+                this.apiPromoCode();
             }
         });
     }
@@ -172,6 +196,9 @@ class Divan {
             success: (data, textStatus, jqXHR) => {
                 console.info(data.data.data);
                 this.favoriteChannelAdd(channel_id);
+            },
+            error: () => {
+                this.apiFavoriteChannelAdd(channel_id);
             }
         });
     }
@@ -191,6 +218,9 @@ class Divan {
             success: (data, textStatus, jqXHR) => {
                 console.info(data.data.data);
                 this.favoriteChannelRemove(channel_id);
+            },
+            error: () => {
+                this.apiFavoriteChannelDelete(channel_id);
             }
         });
     }
