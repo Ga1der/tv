@@ -94,7 +94,62 @@
                 </label>
             </div>
         </template>
-        <div class="row channels"></div>
+        <div class="row channels">
+            <style>
+                .loader {
+                    border-radius: 50%;
+                    border-top: 1rem dotted #109d58;
+                    border-right: 1rem dotted #dd4337;
+                    border-bottom: 1rem dotted #ffce41;
+                    border-left: 1rem dotted #4385f6;
+                    width: 10rem;
+                    height: 10rem;
+                    -webkit-animation: spin 2s linear infinite; /* Safari */
+                    animation: spin 2s linear infinite;
+                }
+                
+                .loader.s1{
+                  width: 8rem;
+                  height: 8rem;
+                }
+                
+                .loader.s2{
+                  width: 6rem;
+                  height: 6rem;
+                }
+                
+                .loader.s3{
+                  width: 4rem;
+                  height: 4rem;
+                }
+                
+                .loader.s4{
+                  width: 2rem;
+                  height: 2rem;
+                }
+                
+                /* Safari */
+                @-webkit-keyframes spin {
+                  0% { -webkit-transform: rotate(0deg); }
+                  100% { -webkit-transform: rotate(360deg); }
+                }
+                
+                @keyframes spin {
+                  0% { transform: rotate(0deg); }
+                  100% { transform: rotate(360deg); }
+                }
+            </style>
+            <div style="margin: 0 auto;">
+                <div class="loader">
+                <div class="loader s1">
+                <div class="loader s2">
+                <div class="loader s3">
+                </div>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
