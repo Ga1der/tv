@@ -72,6 +72,7 @@ class Divan {
                 console.info(this.response_channels);
             },
             error: () => {
+                this.sleep(1000);
                 this.apiChannels();
             }
         });
@@ -132,6 +133,7 @@ class Divan {
                 console.info(this.response_registration);
             },
             error: () => {
+                this.sleep(1000);
                 this.apiRegister();
             }
         });
@@ -155,6 +157,7 @@ class Divan {
                 console.info(this.response_login);
             },
             error: () => {
+                this.sleep(1000);
                 this.apiLogin();
             }
         });
@@ -176,6 +179,7 @@ class Divan {
                 console.info(data.data);
             },
             error: () => {
+                this.sleep(1000);
                 this.apiPromoCode();
             }
         });
@@ -198,6 +202,7 @@ class Divan {
                 this.favoriteChannelAdd(channel_id);
             },
             error: () => {
+                this.sleep(1000);
                 this.apiFavoriteChannelAdd(channel_id);
             }
         });
@@ -220,6 +225,7 @@ class Divan {
                 this.favoriteChannelRemove(channel_id);
             },
             error: () => {
+                this.sleep(1000);
                 this.apiFavoriteChannelDelete(channel_id);
             }
         });
