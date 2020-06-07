@@ -1,16 +1,16 @@
 /**
- * 
+ *
  */
 class DivanUI {
     /**
-     * 
+     *
      */
     constructor(divan) {
         this.divan = divan;
     }
 
     /**
-     * 
+     *
      */
     drawChannels() {
         const channels = $('.channels');
@@ -21,7 +21,7 @@ class DivanUI {
             (() => {
                 const channel = response_channels[i];
                 const item = template
-                    .replace('{{lable.title}}', `${channel.id} \t:\t ${channel.title.RU}`)
+                    .replace('{{label.title}}', `${channel.id} \t:\t ${channel.title.RU}`)
                     .replace('{{channel.id}}', `${channel.id}`)
                     .replace('{{channel.name}}', `${channel.title.RU}`)
                     .replace('{{image.src}}', `${channel.image.sm}`)
@@ -34,10 +34,29 @@ class DivanUI {
         $('#get_code').prop('disabled', false);
     }
 
+    drawProgram() {
+        const channels = $('.channels_program');
+        channels.html('');
+        const template = $('#template_channel_program').html();
+        const response_channels = this.divan.response_channels_program;
+        for (let i in response_channels) {
+            (() => {
+                const channel = response_channels[i];
+                const item = template
+                    .replace('{{time}}', `${new Date(channel.start_ts * 1000).toLocaleString("ru-RU")}`)
+                    .replace('{{channel}}', `${channel.channels[0].title.RU}`)
+                    .replace('{{genre}}', `${channel.genres.map((genre) => genre.genre_name.RU || genre.genre_name.EN).join(', ')}`)
+                    .replace('{{program}}', `${channel.title.RU || channel.title.EN}`);
+
+                channels.append(item);
+            })();
+        }
+    }
+
     /**
-     * 
+     *
      */
-    enableFavoriteChannals() {
+    enableFavoriteChannels() {
         const favorite = this.divan.getFavoriteChannels();
         $('.channels .channel input').map(function () {
             const channel_id = 1 * this.value;
@@ -48,7 +67,7 @@ class DivanUI {
     }
 
     /**
-     * 
+     *
      */
     onGetCode() {
         const divan = this.divan;

@@ -1,9 +1,9 @@
 /**
- * 
+ *
  */
 class Divan {
     /**
-     * 
+     *
      */
     constructor() {
         this.client_key = '8a66efabeee725d313673361fa3728c21430809f'; // magic!
@@ -15,6 +15,7 @@ class Divan {
 
         this.response_authorization;
         this.response_channels;
+        this.response_channels_program = [];
         this.response_registration;
         this.response_login;
     }
@@ -28,7 +29,7 @@ class Divan {
     }
 
     /**
-     * 
+     *
      */
     apiAuth() {
         $.ajax({
@@ -55,8 +56,48 @@ class Divan {
         return this;
     }
 
+    apiProgram() {
+        const limit = 1000;
+        let offset = 0;
+        let total_count = 9e9;
+        const get_channels = () => {
+            if (offset >= total_count) return;
+            $.ajax({
+                async: false,
+                method: 'post',
+                url: 'https://api.divan.tv/v1/epg/browse_all',
+                headers: {
+                    //'Origin': 'https://galder.io.ua'
+                },
+                data: {
+                    authorization_key: this.response_authorization.authorization_key,
+                    limit: limit,
+                    offset: offset,
+                    top_sorting: 0,
+                    recorded_only: 0,
+                },
+                success: (data, textStatus, jqXHR) => {
+                    console.info(data.data);
+                    offset = offset + data.data.count;
+                    total_count = data.data.total_count;
+                    this.response_channels_program = [...this.response_channels_program, ...data.data.data];
+                    get_channels();
+                },
+                error: () => {
+                    this.sleep(1000);
+                    get_channels();
+                }
+            });
+        };
+
+        get_channels();
+        console.info(this.response_channels_program);
+
+        return this;
+    }
+
     /**
-     * 
+     *
      */
     apiChannels() {
         $.ajax({
@@ -81,7 +122,7 @@ class Divan {
     }
 
     /**
-     * 
+     *
      */
     getFavoriteChannels() {
         let favorite = window.localStorage.getItem('user_favorite_channels');
@@ -98,7 +139,7 @@ class Divan {
     }
 
     /**
-     * 
+     *
      */
     favoriteChannelAdd(channel_id) {
         const channel = this.response_channels.find(element => element.id == channel_id);
@@ -107,7 +148,7 @@ class Divan {
     }
 
     /**
-     * 
+     *
      */
     favoriteChannelRemove(channel_id) {
         delete this.user_favorite_channels[channel_id];
@@ -115,7 +156,7 @@ class Divan {
     }
 
     /**
-     * 
+     *
      */
     apiRegister() {
         $.ajax({
@@ -140,7 +181,7 @@ class Divan {
     }
 
     /**
-     * 
+     *
      */
     apiLogin() {
         $.ajax({
@@ -164,7 +205,7 @@ class Divan {
     }
 
     /**
-     * 
+     *
      */
     apiPromoCode() {
         $.ajax({
@@ -186,7 +227,7 @@ class Divan {
     }
 
     /**
-     * 
+     *
      */
     apiFavoriteChannelAdd(channel_id) {
         $.ajax({
@@ -209,7 +250,7 @@ class Divan {
     }
 
     /**
-     * 
+     *
      */
     apiFavoriteChannelDelete(channel_id) {
         $.ajax({
