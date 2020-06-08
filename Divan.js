@@ -81,7 +81,7 @@ class Divan {
                     offset = offset + data.data.count;
                     total_count = data.data.total_count;
                     this.response_channels_program = [...this.response_channels_program, ...data.data.data];
-                    // get_channels();
+                    get_channels();
                 },
                 error: () => {
                     this.sleep(1000);
