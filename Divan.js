@@ -91,6 +91,10 @@ class Divan {
         };
 
         get_channels();
+        const now = Math.floor(new Date().valueOf()/1000);
+        this.response_channels_program = this.response_channels_program
+            // .filter((item) => item.stop_ts < now)
+            .sort((a,b) => (a.start_ts > b.start_ts));
         console.info(this.response_channels_program);
 
         return this;

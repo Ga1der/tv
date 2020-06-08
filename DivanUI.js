@@ -42,8 +42,10 @@ class DivanUI {
         for (let i in response_channels) {
             (() => {
                 const channel = response_channels[i];
+                const time_start = new Date(channel.start_ts * 1000).toLocaleString("ru-RU");
+                const time_end = new Date(channel.stop_ts * 1000).toLocaleString("ru-RU");
                 const item = template
-                    .replace('{{time}}', `${new Date(channel.start_ts * 1000).toLocaleString("ru-RU")}`)
+                    .replace('{{time}}', `${time_start.slice(0, 10)} ${time_start.slice(12, 17)} - ${time_end.slice(12, 17)}`)
                     .replace('{{channel}}', `${channel.channels[0].title.RU}`)
                     .replace('{{genre}}', `${channel.genres.map((genre) => genre.genre_name.RU || genre.genre_name.EN).join(', ')}`)
                     .replace('{{program}}', `${channel.title.RU || channel.title.EN}`);
