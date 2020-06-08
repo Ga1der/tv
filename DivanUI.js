@@ -36,7 +36,7 @@ class DivanUI {
 
     drawProgram() {
         const channels = $('.channels_program');
-        channels.html('');
+        // channels.html('');
         const template = $('#template_channel_program').html();
         const response_channels = this.divan.response_channels_program;
         for (let i in response_channels) {
