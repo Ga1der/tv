@@ -8,8 +8,8 @@ $(function () {
     divanUI.enableFavoriteChannels();
     divanUI.onGetCode();
 
-    setTimeout(() => {
-        divan.apiProgram();
-        divanUI.drawProgram();
-    }, 1);
+    // setTimeout(() => {
+    //     divan.apiProgram();
+    //     divanUI.drawProgram();
+    // }, 1);
 });
